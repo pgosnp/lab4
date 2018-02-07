@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span>Gender</span>
+        <span>
+            <input type="radio" name="sex" value="Male">Male
+            <br>
+            <input type="radio" name="sex" value="Female">Female
+        </span>
+    </div>
+    <div>
+        <span>Color</span>
+        <span>
+            <input type="color" name="color" value="">
+        </span>
+    </div>
+    <div>
+        <span>Culture:</span>
+        <select id="culture" onchange="cultureSelected()">
+            <option value="nan">Please select one:</option>
+            <option value="west">Western Horoscope</option>
+            <option value="chi">Chinese Horoscope</option>
+        </select>
+    </div>
+
+    <div>
+        <span>Zodiac:</span>
+        <select id="zodiac" disabled>
+        </select>
+    </div>
+</body>
+
+<script>
+    var western = ["ARIES", "TAURUS"];
+    var chinese = ["Mice", "Cow"];
+    var culture = document.getElementById("culture").value;
+    var zodiac = document.getElementById("zodiac");
+
+    function cultureSelected() {
+        var culture = document.getElementById("culture").value;
+        var zodiac = document.getElementById("zodiac");
+        zodiac.options.length = 0;
+        zodiac.options.length = 0;
+
+        alert(document.getElementById("culture").value);
+        if (culture == "west") {
+
+            for (item of western) {
+
+                var option = document.createElement("option");
+                option.text = item;
+                zodiac.add(option);
+
+            }
+
+            zodiac.disabled = false;
+
+        } else if (culture == "chi") {
+
+            for (item of chinese) {
+
+                var option = document.createElement("option");
+                option.text = item;
+                zodiac.add(option);
+
+            }
+            zodiac.disabled = false;
+
+        } else {
+            zodiac.disabled = true;
+        }
+    }
+</script>
+
+</html>
