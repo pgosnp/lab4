@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <span>Gender: </span>
+        <span>
+            <input type="radio" name="sex" value="Male">Male
+            <br>
+            <input type="radio" name="sex" value="Female">Female
+        </span>
+    </div>
+    <div>
+        <span>Color: </span>
+        <span>
+            <input type="color" name="color" value="">
+        </span>
+    </div>
+    <div>
+        <span>Team:</span>
+        <select onchange="teamSelected(this.value)">
+            <option value="nan">Please select a team:</option>
+            <option value="Avengers">Avengers</option>
+            <option value="JLA">Justice League</option>
+        </select>
+    </div>
+
+    <div>
+        <span>Hero:</span>
+        <select id="hero" disabled>
+        </select>
+    </div>
+    <script>
+        var avengers = ["Captain America", "Iron Man", "Thor", "Hulk", "Black Widow", "Hawkeye"];
+        var jla = ["Superman", "Batman", "Wonder Woman", "Flash", "Green Lantern", "Aquaman"];
+
+        function teamSelected(teamValue) {
+
+            alert(teamValue)
+
+        }
+        var heroSelect = document.getElementById("hero");
+        heroSelect.options.length = 0;
+        if (teamValue == "Avengers") {
+
+            avengers.forEach(function (item) {
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                heroSelect.add(option);
+            });
+
+            heroSelect.disabled = false;
+
+        } else if (teamValue == "JLA") {
+
+            jla.forEach(function (item) {
+                var option = document.createElement("option");
+                option.text = item;
+                option.value = item;
+                heroSelect.add(option);
+            });
+
+            heroSelect.disabled = false;
+
+        } else {
+
+            heroSelect.disabled = true;
+
+        }
+    </script>
+</body>
+
+</html>
